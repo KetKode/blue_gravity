@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Content(models.Model):
@@ -12,4 +13,23 @@ class Content(models.Model):
     )
     thumbnail_url = models.URLField(null=True, blank=True)
     content_url = models.URLField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.title}"
+
+
+class Rating(models.Model):
+    """A rating user gives to a content item"""
+
+    content = models.ForeignKey(
+        Content, on_delete=models.CASCADE, related_name="rating"
+    )
+    rated_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="rating")
+
+    RATING_CHOICES = (("N", "N/A"), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
+    rating = models.CharField(
+        max_length=1, choices=RATING_CHOICES, null=True, blank=True, default="N"
+    )
+
+    def __str__(self):
+        return f"Rating {self.rating} for {self.content}"

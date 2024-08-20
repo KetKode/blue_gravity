@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
-from models import Content
-from serializers import ContentSerializer
+from .models import Content
+from .serializers import ContentSerializer
 from drf_spectacular.utils import extend_schema
-from schema_data import CONTENT_API_METADATA
+from .schema_data import CONTENT_API_METADATA
 
 
 class ContentApiViewSet(ModelViewSet):
