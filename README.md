@@ -19,6 +19,12 @@
 git clone https://github.com/KetKode/blue_gravity.git
 ```
 
+### cd into working directory
+
+```
+cd interview_task
+```
+
 ### add .env like .env.example
 
 ```
@@ -29,12 +35,6 @@ POSTGRESQL_PASSWORD=db_password
 POSTGRESQL_DBNAME=db_name
 
 SECRET_KEY=your_secret_key
-```
-
-### cd into working directory
-
-```
-cd interview_task
 ```
 
 ### create network
