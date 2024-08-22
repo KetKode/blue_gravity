@@ -26,10 +26,17 @@ class Rating(models.Model):
     )
     rated_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="rating")
 
-    RATING_CHOICES = (("N", "N/A"), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5))
+    RATING_CHOICES = (
+        ("N", "N/A"),
+        ("1", "1"),
+        ("2", "2"),
+        ("3", "3"),
+        ("4", "4"),
+        ("5", "5"),
+    )
     rating = models.CharField(
         max_length=1, choices=RATING_CHOICES, null=True, blank=True, default="N"
     )
 
     def __str__(self):
-        return f"Rating {self.rating} for {self.content}"
+        return f"{self.content} - rated '{self.rating}'"

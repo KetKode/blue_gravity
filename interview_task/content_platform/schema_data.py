@@ -4,7 +4,6 @@ from enum import Enum
 class SchemaTags(Enum):
     CONTENT = "content"
     USER = "user"
-    JWT = "jwt"
     RATING = "rating"
 
 
@@ -28,5 +27,29 @@ CONTENT_API_METADATA = {
     "ContentDestroy": {
         "tags": [SchemaTags.CONTENT.value],
         "summary": "Delete a content item by ID",
+    },
+}
+
+
+RATING_API_METADATA = {
+    "RatingCreate": {
+        "tags": [SchemaTags.RATING.value],
+        "summary": "Rate a content item",
+    },
+    "RatingList": {
+        "tags": [SchemaTags.RATING.value],
+        "summary": "Get all ratings of content items from the DB",
+    },
+    "RatingRetrieve": {
+        "tags": [SchemaTags.RATING.value],
+        "summary": "Get a rated content item by ID",
+    },
+    "RatingUpdate": {
+        "tags": [SchemaTags.RATING.value],
+        "summary": "Update a rating of content item by ID",
+    },
+    "RatingDestroy": {
+        "tags": [SchemaTags.RATING.value],
+        "summary": "Delete a rating by ID",
     },
 }
