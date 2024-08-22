@@ -90,3 +90,9 @@ docker exec -it interview_task-backend-1 poetry run python manage.py migrate
 ```
 docker exec -it interview_task-backend-1 poetry run python manage.py createsuperuser
 ```
+
+### run tests
+
+```
+docker exec -ti interview_task-backend-1 coverage run --source='.' manage.py test
+```
