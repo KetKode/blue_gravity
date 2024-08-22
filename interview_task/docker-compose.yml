@@ -14,7 +14,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
       target: dev_build
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000 --settings=interview_task.settings
     volumes:
       - .:/app/
     ports:
