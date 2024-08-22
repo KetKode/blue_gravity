@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
+from django.contrib.auth.models import User
 from .models import Content
-from .serializers import ContentSerializer
+from .serializers import ContentSerializer, UserSerializer
 from drf_spectacular.utils import extend_schema
 from .schema_data import CONTENT_API_METADATA
 
@@ -34,3 +36,9 @@ class ContentApiViewSet(ModelViewSet):
     @extend_schema(**CONTENT_API_METADATA["ContentDestroy"])
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
+
+
+class RegistrationView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = [AllowAny]
+    serializer_class = UserSerializer
