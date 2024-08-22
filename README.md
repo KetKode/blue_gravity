@@ -15,7 +15,7 @@
 ### clone the project repo
 
 ```
-git clone [git@github.com:KetKode/blue_gravity.git](https://github.com/KetKode/blue_gravity.git)
+git clone https://github.com/KetKode/blue_gravity.git
 ```
 
 ### add .env like .env.example
