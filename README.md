@@ -1,14 +1,15 @@
 # Content-sharing platform (backend)
 
-### Stack:
+- **API docs:** http://localhost:8000/api/docs/
+- **Django admin panel:** http://localhost:8000/admin/
+
+## Stack:
 
 - Django
 - Django REST Framework
 - PostgreSQL
 - Swagger UI
 
-**API docs:** http://localhost:8000/api/docs/
-**Django admin panel:** http://localhost:8000/admin/
 
 ## Start the project locally using Docker
 
@@ -48,17 +49,22 @@ docker network create content-net
 sudo docker compose docker-compose.yml up --build -d
 ```
 
-### optionally configure db user/role in case it does not exist
+### optionally configure db/user/role
 
-access the db as postgres user
+*access the db as postgres user*
 ```
 sudo docker compose exec db psql -U postgres
 ```
 
 ```
-\c your_database_name``` or ```CREATE DATABASE <your_db_name>;
+\c your_database_name
 ```
+*or, if the db doesn't exist*
 
+```
+CREATE DATABASE <your_db_name>;
+```
+*configure the user and their role, priviliges*
 ```
 GRANT ALL PRIVILEGES ON DATABASE <your_db_name> TO <your_db_user_name>;
 ```
